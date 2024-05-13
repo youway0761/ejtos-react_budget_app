@@ -1,28 +1,32 @@
+import { useState } from 'react';
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
+import { Menu, MenuItem, MenuButton, MenuList } from '@reach/menu-button';
+import '@reach/menu-button/styles.css';
 const Currency = () => {
+    const [currency, setCurrency] = useState('£ Pound')
     const { dispatch } = useContext(AppContext);
-    const handleCurrencyChange = (event) => {
+    const handleCurrencyChange = (c) => {
+        setCurrency(c);
         dispatch({
             type: 'CHG_CURRENCY',
-            payload: event.target.value,
+            payload: c[0],
         }); 
     }
     return (
         <div>
-            <div className="input-group mb-3" style={{ marginLeft: '2rem' }}>
-                    <div className="input-group-prepend">
-                <label className="input-group-text" htmlFor="inputGroupSelect01">Currency</label>
-                  </div>
-                  <select className="custom-select" id="inputGroupSelect01" onChange={handleCurrencyChange}>
-                        <option defaultValue>£ Pound</option>
-                        <option value="$" name="dollar"> $ Dollar</option>
-                <option value="£" name="pound">£ Pound</option>
-                <option value="€" name="euro">€ Euro</option>
-                <option value="₹" name="ruppee">₹ Ruppee</option>
-                  </select>
-                </div>
-        </div>
+       <Menu>
+        <MenuButton style={{ background: 'green',fontSize: '1.5em'}}>
+          Currency <span aria-hidden>{currency}▾</span>
+        </MenuButton>
+        <MenuList>
+        <MenuItem onSelect={() => handleCurrencyChange('$ Dollar')} style={{ background: 'green',fontSize: '1.5em'}}>$ Dollar</MenuItem>
+        <MenuItem onSelect={() => handleCurrencyChange('£ Pound')} style={{ background: 'green',fontSize: '1.5em'}}>£ Pound</MenuItem>
+        <MenuItem onSelect={() => handleCurrencyChange('€ Euro')} style={{ background: 'green',fontSize: '1.5em'}}>€ Euro</MenuItem>
+        <MenuItem onSelect={() => handleCurrencyChange('₹ Ruppee')} style={{ background: 'green',fontSize: '1.5em'}}>₹ Ruppee</MenuItem>
+       </MenuList>
+      </Menu>
+    </div>
      );
 };
 export default Currency;

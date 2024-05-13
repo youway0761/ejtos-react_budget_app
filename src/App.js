@@ -16,46 +16,33 @@ const App = () => {
     return (
         <AppProvider>
             <div className='container'>
-                <h1 className='mt-3'>Company's Budget Allocation</h1>
-                    <div className='row mt-3'>
-                    {/* Budget component */}
+                <h1 className='mt-4'>Company's Budget Allocation</h1>
+                <div className='row mt-4'>
                     <div className='col-sm'>
                         <Budget />
-                    </div>                        {
-                            /* Add Remaining component here*/
-                        }        
-                {/*Remaining component*/}
-                <div className='col-sm'>
+                    </div> 
+                    <div className='col-sm'>
                         <Remaining />
                     </div>
-
-                        {
-                            /* Add ExpenseTotal component here */
-                        }        
-                       {/*ExpenseTotal component*/}
                     <div className='col-sm'>
                         <ExpenseTotal />
                     </div>
-
                     <div className='col-sm'>
                         <Currency />
                     </div>
 
                     <h3 className='mt-3'>Allocation</h3>
-                        {
-                            /* Add ExpenseList component here */
-                        }         
-                <div className='row '>
-                    <div className='col-sm'>
-                        <ExpenseList />
+                    <div className='row '>
+                        <div className='col-sm'>
+                            <ExpenseList />
+                        </div>
                     </div>
-                </div>
-                <h3 className='mt-3'>Change allocation</h3>
-                <div className='row mt-3'>
-                    <div className='col-sm'>
-                        <AllocationForm/>
+                    <h3 className='mt-3'>Change allocation</h3>
+                    <div className='row mt-3'>
+                        <div className='col-sm'>
+                            <AllocationForm/>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </AppProvider>
