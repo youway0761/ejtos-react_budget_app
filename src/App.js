@@ -20,7 +20,7 @@ const App = () => {
                 <div className='row mt-4'>
                     <div className='col-sm'>
                         <Budget />
-                    </div> 
+                    </div>
                     <div className='col-sm'>
                         <Remaining />
                     </div>
@@ -40,7 +40,7 @@ const App = () => {
                     <h3 className='mt-3'>Change allocation</h3>
                     <div className='row mt-3'>
                         <div className='col-sm'>
-                            <AllocationForm/>
+                            <AllocationForm />
                         </div>
                     </div>
                 </div>
